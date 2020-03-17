@@ -1,11 +1,50 @@
-<p-tabView>
-  <p-tabPanel header="Header 1">
-     Content 1
-  </p-tabPanel>
-  <p-tabPanel header="Header 2">
-      Content 2
-  </p-tabPanel>
-  <p-tabPanel header="Header 3">
-      Content 3
-  </p-tabPanel>
-</p-tabView>
+<div class="container">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <h1>Lançamentos</h1>
+        </div>
+    </div>
+
+    <div class="ui-g-12 ui-fluid">
+        <label>Descrição</label>
+        <input pInputText type="text" />
+    </div>
+
+    <div class="ui-g-12">
+        <label style="display: block;">Vencimento</label>
+        <input pInputText type="text" style="width: 95px;" />
+
+        <label>até</label>
+        <input pInputText type="text" style="width: 95px;" />
+    </div>
+
+    <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+
+    <div class="p-grid">
+        <div class="p-col-12">
+            <p-table [value]="lancamentos">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Pessoa</th>
+                        <th>Descricao</th>
+                        <th class="col-data-th">Vencimento</th>
+                        <th class="col-data-th">Pagamento</th>
+                        <th class="col-valor-th">Valor</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-l>
+                    <tr>
+                        <td>{{l.pessoa}}</td>
+                        <td>{{l.descricao}}</td>
+                        <td>{{l.dataVencimento}}</td>
+                        <td>{{l.dataPagamento}}</td>
+                        <td class="col-valor-td">{{l.valor}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
