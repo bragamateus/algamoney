@@ -34,12 +34,12 @@
                         <th class="col-valor-th">Valor</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-l>
+                <ng-template pTemplate="body" let-lancamento>
                     <tr>
-                        <td>{{l.pessoa}}</td>
-                        <td>{{l.descricao}}</td>
-                        <td>{{l.dataVencimento}}</td>
-                        <td>{{l.dataPagamento}}</td>
+                        <td>{{lancamento.pessoa}}</td>
+                        <td>{{lancamento.descricao}}</td>
+                        <td>{{lancamento.dataVencimento}}</td>
+                        <td>{{lancamento.dataPagamento}}</td>
                         <td class="col-valor-td">{{l.valor}}</td>
                     </tr>
                 </ng-template>
