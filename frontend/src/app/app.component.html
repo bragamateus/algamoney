@@ -24,9 +24,10 @@
 
     <div class="ui-g">
         <div class="ui-g-12">
-            <p-dataTable [value]="lancamentos" [paginator]="true" [rows]="2">
+            <p-dataTable [value]="lancamentos" [paginator]="true" [rows]="5"
+            [responsive]="true">
                 <p-column header="Pessoa" field="pessoa"></p-column>
-                <p-column header="Descricao" field="descricao"></p-column>
+                <p-column header="Descrição" field="descricao"></p-column>
                 <p-column header="Vencimento" field="dataVencimento" styleClass="col-data"></p-column>
                 <p-column header="Pagamento" field="dataPagamento" styleClass="col-data"></p-column>
                 <p-column header="Valor" field="valor" styleClass="col-valor">
@@ -36,8 +37,8 @@
                 </p-column>
                 <p-column styleClass="col-acoes">
                     <ng-template pTemplate="body">
-                        <a pButton icon="fa-pencil"></a>
-                        <button pButton icon="fa-trash"></button>
+                        <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+                        <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
                     </ng-template>
                 </p-column>
             </p-dataTable>

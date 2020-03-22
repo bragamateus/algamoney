@@ -5,6 +5,7 @@ import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { ButtonModule } from 'primeng/components/button/button';
 import { AppComponent } from './app.component';
 import {DataTableModule} from 'primeng/components/datatable/datatable';
+import {TooltipModule} from 'primeng/components/tooltip/tooltip';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {DataTableModule} from 'primeng/components/datatable/datatable';
     BrowserModule,
     InputTextModule,
     ButtonModule,
-    DataTableModule
+    DataTableModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
