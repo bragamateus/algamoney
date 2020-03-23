@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <h1>Lançamentos</h1>
+        </div>
+
+        <div class="ui-g-12 ui-fluid">
+            <label>Descrição</label>
+            <input pInputText type="text" />
+        </div>
+
+        <div class="ui-g-12">
+            <label style="display: block;">Vencimento</label>
+            <input pInputText type="text" style="width: 95px;" />
+
+            <label>até</label>
+            <input pInputText type="text" style="width: 95px;" />
+        </div>
+
+        <div class="ui-g-12">
+            <button pButton type="submit" label="Pesquisar"></button>
+        </div>
+    </div>
+
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-dataTable [value]="lancamentos" [paginator]="true" [rows]="5"
+            [responsive]="true">
+                <p-column header="Pessoa" field="pessoa"></p-column>
+                <p-column header="Descrição" field="descricao"></p-column>
+                <p-column header="Vencimento" field="dataVencimento" styleClass="col-data"></p-column>
+                <p-column header="Pagamento" field="dataPagamento" styleClass="col-data"></p-column>
+                <p-column header="Valor" field="valor" styleClass="col-valor">
+                    <ng-template let-l="rowData" pTemplate="body">
+                        <span [style.color]="l.tipo === 'DESPESA' ? 'red' : 'blue'">{{l.valor}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column styleClass="col-acoes">
+                    <ng-template pTemplate="body">
+                        <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+                        <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></button>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+        <div class="ui-g-12">
+            <button pButton type="submit" label="Novo Lançmento"></button>
+        </div>
+    </div>
+
+</div>
+
