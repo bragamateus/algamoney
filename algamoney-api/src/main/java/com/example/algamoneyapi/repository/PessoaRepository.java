@@ -1,9 +1,16 @@
 package com.example.algamoneyapi.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
 import com.example.algamoneyapi.model.Pessoa;
 
-public interface PessoaRepository extends JpaRepository<Pessoa, Long>{
+public interface PessoaRepository{
 
+	List<Pessoa> buscarTodos();
+	
+	Pessoa buscar(Long id);
+	
+	Pessoa salvar(Pessoa pessoa);
+	
+	void remover(Pessoa pessoa);
 }
