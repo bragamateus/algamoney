@@ -6,7 +6,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.algamoneyapi.model.Pessoa;
 import com.example.algamoneyapi.repository.PessoaRepository;
+import com.example.algamoneyapi.service.PessoaService;
 
 @RestController
 @RequestMapping("/pessoas")
@@ -30,6 +30,9 @@ public class PessoaResource {
 	
 	@Autowired
 	private PessoaRepository pessoaRepository;
+	
+	@Autowired
+	private PessoaService pessoaService;
 	
 	@GetMapping
 	public List<Pessoa> listar(){
@@ -66,23 +69,17 @@ public class PessoaResource {
 			pessoaRepository.remover(pessoa);
 			return ResponseEntity.noContent().build();
 		}
-		
 		return ResponseEntity.notFound().build();
-		
 	}
 	
 	@PutMapping("/{codigo}")
 	public ResponseEntity<Pessoa> atualizar(@PathVariable Long codigo, @Valid @RequestBody Pessoa pessoa){
-	
-		Pessoa pessoaAtual = pessoaRepository.buscar(codigo);
 		
-		if(pessoaAtual != null) {
-			BeanUtils.copyProperties(pessoa, pessoaAtual, "codigo");
-			pessoaAtual = pessoaRepository.salvar(pessoaAtual);
-			return ResponseEntity.ok(pessoaAtual);
-		}
+		Pessoa pessoaAtual = pessoaService.atualizar(codigo, pessoa);
 		
-		return ResponseEntity.notFound().build();
+		return ResponseEntity.ok(pessoaAtual);
+		
+		
 		
 	}
 	
