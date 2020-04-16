@@ -12,12 +12,12 @@ export class LancamentosPesquisaComponent implements OnInit {
 
     constructor(private lancamentoService: LancamentoService) { }
 
-    ngOnInit(){
+    ngOnInit() {
         this.pesquisar();
     }
 
-    pesquisar(){
+    pesquisar() {
         this.lancamentoService.pesquisar()
-        .then(() => null);
+        .subscribe((response) => (this.lancamentos = response.content));
     }
 }
