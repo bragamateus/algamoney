@@ -24,5 +24,14 @@ public class PessoaService {
 		BeanUtils.copyProperties(pessoa, pessoaAtual, "codigo");
 		return pessoaAtual = pessoaRepository.salvar(pessoaAtual);
 	}
+	
+	public Pessoa buscarPessoaPeloCodigo(Long codigo) {
+		Pessoa pessoaAtual = pessoaRepository.buscar(codigo);
+		if (pessoaAtual == null) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		
+		return pessoaAtual;
+	}
 
 }
