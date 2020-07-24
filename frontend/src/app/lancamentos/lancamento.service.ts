@@ -10,9 +10,9 @@ export class LancamentoService {
 
     constructor(private http: HttpClient) { }
 
-    lancamentosUrl = 'http://localhost:8000/lancamentos';
+    lancUrl = 'http://localhost:8000/lancamentos';
 
     pesquisar(): Observable<any> {
-        return this.http.get(`${this.lancamentosUrl}?resumo`);
+        return this.http.get(`${this.lancUrl}?resumo`);
     }
 }
